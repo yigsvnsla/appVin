@@ -1,0 +1,19 @@
+.cardImageContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.cardFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 3%;
+}
+
+.cardFooter > ion-icon{
+    margin-right: 2%;
+}

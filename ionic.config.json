@@ -1,5 +1,8 @@
 {
   "name": "appVin",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+<ion-button slot="end" fill="outline" size="small" (click)="exitOnData()"  style="margin-right: 10px;">
+  <ion-icon slot="icon-only" name="close" ></ion-icon>
+</ion-button>
+    <ion-title>Search VIN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card >
+  <br>
+  <ion-card-header>
+    <ion-card-title style="text-align: center; ">Vehicle Identification Number</ion-card-title>
+  </ion-card-header>
+  
+  <ion-card-content>
+    <ion-item class="ion-text-center"  >
+      <ion-input type="text" maxlength="17" placeholder="Insert code here"></ion-input>
+    </ion-item>
+    <br>
+    <div class="ion-text-center">
+      <ion-button fill="outline" >Search
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-card-content>
+</ion-card>
+
+
+
+
+<!--
+<ion-item class="ion-text-center" style="color:white;"color="danger" expand="full">
+  <ion-grid class="ion-justify-content-center">
+    <ion-row>
+      <ion-col>
+        <ion-icon name="close" expand="block"></ion-icon> Error 404 not found
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
+  
+ --> 
+
+
+</ion-content>
