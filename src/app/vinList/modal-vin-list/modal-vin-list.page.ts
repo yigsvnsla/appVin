@@ -1,6 +1,6 @@
 import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import { VinTaskService } from "../../services/vin-task.service";
+
 @Component({
   selector: 'app-modal-vin-list',
   templateUrl: './modal-vin-list.page.html',
@@ -8,7 +8,7 @@ import { VinTaskService } from "../../services/vin-task.service";
 })
 export class ModalVinListPage implements OnInit {
 
-  constructor(private ModalController:ModalController,private VinTaskService:VinTaskService) { }
+  constructor(private ModalCrtl:ModalController) { }
 
   ngOnInit() {
   }
@@ -18,12 +18,12 @@ export class ModalVinListPage implements OnInit {
     //   .subscribe(all => {
     //  alert(JSON.stringify(all))
     //});
-    event.preventDefault
+    //event.preventDefault
     //alert(this.vinCtrl.value)
  }
 
   exitOnData(){
-    this.ModalController.dismiss()
+    this.ModalCrtl.dismiss()
   }
 
 }

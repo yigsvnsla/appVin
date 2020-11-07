@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>modalManualVin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="RegistrationForm" (ngSubmit)="submit()">
+    <ion-list>
+      <ion-item-divider>
+        <ion-label>Date of Vehicle</ion-label>
+      </ion-item-divider>
+      <!--Model-->
+      <ion-item>
+        <ion-label position="floating">Model</ion-label>
+        <ion-select formControlName="model" [(ngModel)]="selectedVal" autocapitalize (ion-change)="$event" interface="action-sheet">
+          	<ion-select-option *ngFor="let item of data" [value]="item.id" >{{item.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <!-- Date of car-->
+      <ion-item>
+        <ion-label position="floating">Pick date of Vehicle</ion-label>
+        <ion-datetime formControlName="dateCar" displayFormat="YYYY" min="1940" value="{{dateValue | date:'yyyy-MM-dd'}}" [ngModel]="dateValue.toISOString()"></ion-datetime>
+      </ion-item>
+ 
+
+
+      
+
+      <ion-list formGroupName="address">
+        <ion-item-divider>
+          <ion-label>Address</ion-label>
+        </ion-item-divider>
+        <ion-item>
+          <ion-input formControlName="street" autocapitalize type="text" placeholder="Street"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.city">
+          <ng-container *ngIf="street.hasError(error.type) && (street.dirty || street.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+
+        <ion-item>
+          <ion-input formControlName="city" autocapitalize type="text" placeholder="City"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.city">
+          <ng-container *ngIf="city.hasError(error.type) && (city.dirty || city.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+
+        <ion-item>
+          <ion-input formControlName="state" autocapitalize type="text" placeholder="State"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.state">
+          <ng-container *ngIf="state.hasError(error.type) && (state.dirty || state.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+      </ion-list>
+    </ion-list>
+
+    <ion-button [disabled]="!RegistrationForm.valid" type="submit">Submit
+      <ion-icon slot="end" name="create"></ion-icon>
+    </ion-button>
+
+
+  </form>
+</ion-content>

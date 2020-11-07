@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
 import { VinListPageRoutingModule } from './vin-list-routing.module';
-
 import { VinListPage } from './vin-list.page';
+import {  ModalManualVinPage } from '../modal-manual-vin/modal-manual-vin.page'
+import { ModalManualVinPageModule } from '../modal-manual-vin/modal-manual-vin.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    VinListPageRoutingModule
+    VinListPageRoutingModule,
+    ReactiveFormsModule,
+    ModalManualVinPageModule
   ],
   declarations: [VinListPage]
 })

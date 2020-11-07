@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController,AlertController} from '@ionic/angular';
-//import { ModalGalleryPage } from '../../gallery/gallery/gallery.module';
+import { ModalController,AlertController,IonRouterOutlet} from '@ionic/angular';
+import { ModalVinListPage } from "../modal-vin-list/modal-vin-list.page";
+import { ModalManualVinPage } from '../modal-manual-vin/modal-manual-vin.page'
 
 @Component({
   selector: 'app-vin-list',
@@ -9,7 +10,7 @@ import { ModalController,AlertController} from '@ionic/angular';
 })
 export class VinListPage implements OnInit {
 
-  constructor(private ModalController:ModalController,private AlertController:AlertController) { }
+  constructor(private routerOutlet: IonRouterOutlet,public ModalController:ModalController,private AlertController:AlertController) { }
 
   ngOnInit() {
   }
@@ -26,11 +27,13 @@ export class VinListPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
+            this.openModal(ModalManualVinPage)
             console.log('Confirm Cancel: blah');
           }
         }, {
           text: 'Okay',
           handler: () => {
+            this.openModal(ModalVinListPage)
             console.log('Confirm Okay');
           }
         }
@@ -40,15 +43,14 @@ export class VinListPage implements OnInit {
     await alert.present();
   };
 
-  async openModal(){
-   // const modal = await this.ModalController.create({
-    //  component: ModalGalleryPage
-    //});
-    
-    
-    
-    //await modal.present();
-    //const items = await modal.onDidDismiss()
+  async openModal( modalClass ){
+   const modal = await this.ModalController.create({
+      component: modalClass,
+      swipeToClose: true,
+      presentingElement: this.routerOutlet.nativeEl
+    });
+    await modal.present();
+    const items = await modal.onDidDismiss()
   }
 
 }

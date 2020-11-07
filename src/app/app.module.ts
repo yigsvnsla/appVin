@@ -10,8 +10,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from "@angular/common/http";
 
-import { ReactiveFormsModule } from "@angular/forms";
-
+import { ReactiveFormsModule ,FormsModule} from "@angular/forms";
+import { CommonModule } from '@angular/common'
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -20,7 +20,10 @@ import { ReactiveFormsModule } from "@angular/forms";
     IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule
+
   ],
   providers: [
     StatusBar,
