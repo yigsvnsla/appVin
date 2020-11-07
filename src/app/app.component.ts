@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { VinTaskService } from './services/vin-task.service';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -15,7 +14,6 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private VinTaskService: VinTaskService
   ) {
     this.initializeApp();
   }

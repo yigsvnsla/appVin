@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController,AlertController} from '@ionic/angular';
-import { ModalGalleryPage } from 'src/app/gallery/modal-gallery/modal-gallery.page';
+//import { ModalGalleryPage } from '../../gallery/gallery/gallery.module';
 
 @Component({
   selector: 'app-vin-list',
@@ -41,14 +41,14 @@ export class VinListPage implements OnInit {
   };
 
   async openModal(){
-    const modal = await this.ModalController.create({
-      component: ModalGalleryPage
-    });
+   // const modal = await this.ModalController.create({
+    //  component: ModalGalleryPage
+    //});
     
     
     
-    await modal.present();
-    const items = await modal.onDidDismiss()
+    //await modal.present();
+    //const items = await modal.onDidDismiss()
   }
 
 }

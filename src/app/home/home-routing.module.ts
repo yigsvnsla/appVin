@@ -10,6 +10,9 @@ const routes: Routes = [
       {
         path:"gallery",
         loadChildren: ()=>import('../gallery/gallery/gallery.module').then(m => m.GalleryPageModule)
+      },{
+        path:'vin-scan',
+        loadChildren: ()=>import('../vinList/vin-list/vin-list.module').then(m => m.VinListPageModule)
       }
     ]
   }
