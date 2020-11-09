@@ -8,8 +8,11 @@ import { FormBuilder,Validators } from "@angular/forms";
   styleUrls: ['./modal-form.page.scss'],
 })
 export class ModalFormPage implements OnInit {
-  selectMarcVal: number;
+  selectMarcVal:  number;
+  selectAutoPart: number
   data:any[]=[];
+
+  
   dateValue: Date = new Date();
   
   private dateTemp = this.dateValue.getFullYear();
@@ -17,7 +20,7 @@ export class ModalFormPage implements OnInit {
   RegistrationForm = this.formBuilder.group({
     model:[this.getSelectMarcVal(),[Validators.required]],
     dateCar:[this.getDateValue(),[Validators.required]],
-    address:this.formBuilder.group({
+    autoParts:this.formBuilder.group({
       street:['',[Validators.required]],
       city:['',[Validators.required]],
       state:['',[Validators.required]]
@@ -60,7 +63,7 @@ export class ModalFormPage implements OnInit {
     ]
   }
   
-  get street(){
+  /*get street(){
     return this.RegistrationForm.get('address.street')
   }
   get city(){
@@ -69,11 +72,12 @@ export class ModalFormPage implements OnInit {
   get state(){
     return this.RegistrationForm.get('address.state')
   }
-
+*/
   constructor(
     private ModalCtrl:ModalController, 
     private formBuilder:FormBuilder,
-    private Platform:Platform){ // en esta seccion se implementa los services que cargaran la inforamcion a la lista
+    private Platform:Platform){
+       // en esta seccion se implementa los services que cargaran la inforamcion a la lista
       this.data=[
         {id:101,name:'ford'},{id:102,name:'chery'},{id:103,name:'land Rover'}
       ];
@@ -81,8 +85,7 @@ export class ModalFormPage implements OnInit {
     }
 
   ngOnInit() {
-    console.log(this.dateTemp);
-    
+  
   }
 
   submit(){
@@ -100,4 +103,5 @@ export class ModalFormPage implements OnInit {
   private getDateValue(){
     return this.dateTemp
   }
+
 }

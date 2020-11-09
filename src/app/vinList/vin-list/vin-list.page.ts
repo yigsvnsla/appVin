@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController,AlertController,IonRouterOutlet} from '@ionic/angular';
 import { ModalVinListPage } from "../modal-vin-list/modal-vin-list.page";
 
-import { ModalManualVinPage } from '../modal-manual-vin/modal-manual-vin.page'
 import { ModalFormPage } from "../modal-form/modal-form.page";
 @Component({
   selector: 'app-vin-list',

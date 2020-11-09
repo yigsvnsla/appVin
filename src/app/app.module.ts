@@ -11,9 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from "@angular/common/http";
 
 import { ReactiveFormsModule ,FormsModule} from "@angular/forms";
-import { CommonModule } from '@angular/common'
+import { CommonModule } from '@angular/common';
+import { NoArrowDirective } from './micellaneals/no-arrow.directive'
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    NoArrowDirective],
   entryComponents: [],
   imports: [
     BrowserModule, 
