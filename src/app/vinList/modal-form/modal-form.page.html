@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>modalManualVin</ion-title>
+    <ion-button slot="end" fill="outline" size="small" (click)="exitOnData()"  style="margin-right: 10px;">
+      <ion-icon slot="icon-only" name="close" ></ion-icon>
+    </ion-button>
+    <ion-title>modalForm</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,22 +13,28 @@
       <ion-item-divider>
         <ion-label>Date of Vehicle</ion-label>
       </ion-item-divider>
-      <!--Model-->
+      <!-- select Model -->
       <ion-item>
         <ion-label position="floating">Model</ion-label>
-        <ion-select formControlName="model" [(ngModel)]="selectedVal" autocapitalize (ion-change)="$event" interface="action-sheet">
+        <ion-select formControlName="model" [(ngModel)]="selectMarcVal" autocapitalize (ion-change)="$event" interface="action-sheet">
           	<ion-select-option *ngFor="let item of data" [value]="item.id" >{{item.name}}</ion-select-option>
         </ion-select>
       </ion-item>
-      <!-- Date of car-->
+      <!-- select date  -->
       <ion-item>
-        <ion-label position="floating">Pick date of Vehicle</ion-label>
-        <ion-datetime formControlName="dateCar" displayFormat="YYYY" min="1940" value="{{dateValue | date:'yyyy-MM-dd'}}" [ngModel]="dateValue.toISOString()"></ion-datetime>
+        <ion-label position="floating">Select date</ion-label>
+        <ion-datetime formControlName="dateCar" displayFormat="YYYY" min="1940" value="{{dateValue | date:'yyyy'}}" [ngModel]="dateValue.toISOString()"></ion-datetime>
       </ion-item>
- 
-
-
-      
+      <!-- Insert vehicle parts-->
+      <ion-item-divider>
+        <ion-label>Label</ion-label>
+      </ion-item-divider>
+      <ion-item button (click)="submit()" detail>
+        <ion-label>
+          Button Item with Detail Arrow
+        </ion-label>
+      </ion-item>
+      <!-- inputs -->
 
       <ion-list formGroupName="address">
         <ion-item-divider>
@@ -34,7 +43,7 @@
         <ion-item>
           <ion-input formControlName="street" autocapitalize type="text" placeholder="Street"></ion-input>
         </ion-item>
-        <div *ngFor="let error of errorMessages.city">
+        <div *ngFor="let error of errorMessages.street">
           <ng-container *ngIf="street.hasError(error.type) && (street.dirty || street.touched)">
             <small class="error-message">{{error.message}}</small>
           </ng-container>
@@ -59,11 +68,9 @@
         </div>
       </ion-list>
     </ion-list>
-
-    <ion-button [disabled]="!RegistrationForm.valid" type="submit">Submit
-      <ion-icon slot="end" name="create"></ion-icon>
-    </ion-button>
-
-
+      <ion-button [disabled]="!RegistrationForm.valid" type="submit">Submit
+        <ion-icon slot="end" name="create"></ion-icon>
+      </ion-button>
   </form>
+
 </ion-content>

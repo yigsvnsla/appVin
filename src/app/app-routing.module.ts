@@ -10,6 +10,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'modal-form',
+    loadChildren: () => import('./vinList/modal-form/modal-form.module').then( m => m.ModalFormPageModule)
   }
 ];
 

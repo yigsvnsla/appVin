@@ -5,9 +5,9 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { VinListPageRoutingModule } from './vin-list-routing.module';
 import { VinListPage } from './vin-list.page';
-import {  ModalManualVinPage } from '../modal-manual-vin/modal-manual-vin.page'
-import { ModalManualVinPageModule } from '../modal-manual-vin/modal-manual-vin.module';
 
+import { ModalManualVinPageModule } from '../modal-manual-vin/modal-manual-vin.module';
+import { ModalFormPageModule} from '../modal-form/modal-form.module'
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +15,7 @@ import { ModalManualVinPageModule } from '../modal-manual-vin/modal-manual-vin.m
     IonicModule,
     VinListPageRoutingModule,
     ReactiveFormsModule,
-    ModalManualVinPageModule
+    ModalFormPageModule
   ],
   declarations: [VinListPage]
 })
