@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
@@ -13,6 +14,9 @@ const routes: Routes = [
       },{
         path:'vin-scan',
         loadChildren: ()=>import('../vinList/vin-list/vin-list.module').then(m => m.VinListPageModule)
+      },{
+        path:'configApp',
+        loadChildren: ()=>import('../page-config/page-config.module').then(m => m.PageConfigPageModule)
       }
     ]
   }

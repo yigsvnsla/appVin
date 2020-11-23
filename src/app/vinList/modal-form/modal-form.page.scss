@@ -1,3 +1,24 @@
-ion-select::part(icon) {
-    visibility: hidden !important;
-   }
+div.slide  ion-slides{
+    background-color: gray;
+    height: 200px;
+    width: 100%;
+    box-shadow: inset 0px 5px 15px 1px rgba(0, 0, 0, 0.4);
+}
+
+.camBtn{
+    border-radius: 100px;
+    width: 80%;
+    background-color: rgb(46, 46, 46);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ion-label,ion-icon{
+        margin: 5%;
+    }
+
+}
+
+.listBodyFix ion-select::part(text){
+    
+font-family: 'Roboto',sans-serif;
+}

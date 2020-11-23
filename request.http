@@ -1,0 +1,8 @@
+### Variables
+@api = http://190.39.55.108:150/
+
+### GET
+
+GET {{api}}Parts HTTP/1.1
+
+### POST

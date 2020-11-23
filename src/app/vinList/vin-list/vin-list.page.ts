@@ -20,21 +20,27 @@ export class VinListPage implements OnInit {
       cssClass: 'my-custom-class',
       header: 'Vin',
       subHeader: '',
-      message: 'Choose the option how you want to register the VIN code',
+      message: 'Choose the option how you want to register the Component',
       buttons: [
         {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-            this.openModal(ModalFormPage)
-            console.log('Confirm Cancel: blah');
-          }
-        }, {
-          text: 'Okay',
+          text: 'VIN-SCAN',
           handler: () => {
             this.openModal(ModalVinListPage)
             console.log('Confirm Okay');
+          }
+        }, {
+          text: 'MANUAL',
+          handler: () => {
+            this.openModal(ModalFormPage)
+            console.log('Confirm Okay');
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler:() => {
+            
+            console.log('Confirm Cancel: blah');
           }
         }
       ]

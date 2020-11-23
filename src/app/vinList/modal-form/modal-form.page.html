@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button slot="end" fill="outline" size="small" (click)="exitOnData()"  style="margin-right: 10px;">
-      <ion-icon slot="icon-only" name="close" ></ion-icon>
+    <ion-button slot="end" fill="outline" size="small" (click)="exitOnData()" style="margin-right: 10px;">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
     </ion-button>
     <ion-title>modalForm</ion-title>
   </ion-toolbar>
@@ -15,32 +15,64 @@
         <ion-label>Date of Vehicle</ion-label>
       </ion-item-divider>
       <!-- select Model -->
-      <ion-item>
+      <ion-item mode="md">
         <ion-label position="floating">Model</ion-label>
         <ion-icon slot="start" name="albums"></ion-icon>
-        <ion-select formControlName="model" [(ngModel)]="selectMarcVal" autocapitalize (ion-change)="$event" interface="action-sheet">
-          	<ion-select-option *ngFor="let item of data" [value]="item.id" >{{item.name}}</ion-select-option>
+        <ion-select formControlName="model" [(ngModel)]="selectMarcVal" autocapitalize (ion-change)="$event"
+          interface="action-sheet">
+          <ion-select-option *ngFor="let item of listModels" [value]="item">{{item}}</ion-select-option>
         </ion-select>
       </ion-item>
       <!-- select date  -->
-      <ion-item>
+      <ion-item lines="full">
         <ion-label position="floating">Select date</ion-label>
-        <ion-datetime formControlName="dateCar" displayFormat="YYYY" min="1940" value="{{dateValue | date:'yyyy'}}" [ngModel]="dateValue.toISOString()"></ion-datetime>
+        <ion-datetime formControlName="dateCar" displayFormat="YYYY" min="1940" value="{{dateValue | date:'yyyy'}}"
+          [ngModel]="dateValue.toISOString()"></ion-datetime>
       </ion-item>
-      <!-- Insert vehicle parts-- priemero indique que parte del auto es y consecuentemente a que zona corresponde -->
-      <ion-item-divider>
-        <ion-icon slot="end" name="camera" class="ion-margin" ></ion-icon>
-        <ion-label>Insert part to vehicle</ion-label>
+      <!-- Insert vehicle parts-- priemero indique que parte del auto es y consecuentemente a que zona corresponde.
+      2° el registro debe contar de 2 partes.. el chasis= la parte que usuario en el auto no ve y la carroseria0 que es lo que usaurio persive y la parte estetica del auto-->
+      <ion-item-divider mode="md">
+        <ion-label class="ion-text-center">indicate to what autopart belongs</ion-label>
       </ion-item-divider>
-      <ion-item style="margin-bottom: -10px;">
-        <ion-label position="floating">Model</ion-label>
-        <ion-icon slot="start" name="add"></ion-icon>
-          <ion-select formControlName="model" [(ngModel)]="selectMarcVal" (ion-change)="$event" >
-            <ion-select-option *ngFor="let item of data" >{{item.name}}</ion-select-option>
-        </ion-select>
-      </ion-item>
+
+      <div class="slide" *ngIf="onSlide">
+        <ion-card *ngFor=" let item of vinDatas">
+          <ion-card-header>
+            <ion-icon name="add" slot="end"></ion-icon>
+            <ion-select [(ngModel)]="valueSelectAutoParts" placeholder="Select Auto Parts" (ionChange)="onChangeSelectAutoParts($event)">
+              <ion-select-option *ngFor="let item of listConfigComponents" ></ion-select-option>
+            </ion-select>
+
+            <ion-select [(ngModel)]="valueSelectArea" (ionChange)="onChangeSelectArea($event)" placeholder="Select Auto Components">
+              <ion-select-option *ngFor="let item of listConfig" [value]="item.name"> {{item.name}} </ion-select-option>
+            </ion-select>
+
+          </ion-card-header>
+          <ion-card-content class="ion-no-margin ion-no-padding card-content">
+            <!-- Slider -->
+            <ion-slides pager="true">
+              <ion-slide class="slide">
+                <div class="camBtn" button (click)="camShot()" mode="md" color="light-shade">
+                  <ion-icon name="camera"></ion-icon>
+                  <ion-label>Picture Shot</ion-label>
+                </div>
+              </ion-slide>
+            </ion-slides>
+            <ion-item>
+              <ion-label>Price:</ion-label>
+              <ion-input placeholder="0.00$"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <div>
+        <ion-button (click)="addComponent()" expand="block" fill="clear" shape="round">
+          <span>Add Components</span>
+          <ion-icon name="add" slot="end"></ion-icon>
+        </ion-button>
+      </div>
       <!-- inputs -->
-       <!--
+      <!--
       <ion-list formGroupName="address">
         <ion-item-divider>
           <ion-label>Address</ion-label>
@@ -72,11 +104,12 @@
           </ng-container>
         </div>
       </ion-list>
+      [disabled]="!RegistrationForm.valid"
          -->
     </ion-list>
-      <ion-button [disabled]="!RegistrationForm.valid" type="submit">Submit
-        <ion-icon slot="end" name="create"></ion-icon>
-      </ion-button>
+    <ion-button type="submit" expand="block" class="ion-margin">Submit
+      <ion-icon slot="end" name="create"></ion-icon>
+    </ion-button>
   </form>
 
 </ion-content>

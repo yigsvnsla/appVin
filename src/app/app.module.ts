@@ -12,11 +12,16 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { ReactiveFormsModule ,FormsModule} from "@angular/forms";
 import { CommonModule } from '@angular/common';
-import { NoArrowDirective } from './micellaneals/no-arrow.directive'
+import { NoArrowDirective } from './micellaneals/no-arrow.directive';
+
+import { VinDataService } from "./micellaneals/services/vin-data.service";
+import { ListComponentsConfigService } from './micellaneals/services/configService/list-components-config.service'
+
 @NgModule({
   declarations: [
     AppComponent,
-    NoArrowDirective],
+    NoArrowDirective,
+    ],
   entryComponents: [],
   imports: [
     BrowserModule, 
@@ -29,6 +34,8 @@ import { NoArrowDirective } from './micellaneals/no-arrow.directive'
 
   ],
   providers: [
+    ListComponentsConfigService,
+    VinDataService,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

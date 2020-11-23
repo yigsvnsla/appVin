@@ -9,11 +9,18 @@
 .cardFooter {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     margin: 3%;
-}
+    .boxdate{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        ion-icon{
+            margin: 5px;
+            font-size: large;
+        }
+    }
 
-.cardFooter > ion-icon{
-    margin-right: 2%;
 }
