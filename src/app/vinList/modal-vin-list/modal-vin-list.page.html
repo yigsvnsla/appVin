@@ -10,8 +10,8 @@
 <ion-content>
 <ion-card >
   <br>
-  <ion-card-header>
-    <ion-card-title style="text-align: center; ">Vehicle Identification Number</ion-card-title>
+  <ion-card-header >
+    <ion-card-title style="text-align: center; " >Vehicle Identification Number</ion-card-title>
   </ion-card-header>
   
   <ion-card-content>
@@ -22,6 +22,11 @@
     <div class="ion-text-center">
       <ion-button fill="outline" >Search
         <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </div>
+    <div class="ion-text-center">
+      <ion-button fill="outline" (click)="Scanner()" >Scan
+        <ion-icon slot="icon-only" name="scan"></ion-icon>
       </ion-button>
     </div>
   </ion-card-content>

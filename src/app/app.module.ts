@@ -16,6 +16,7 @@ import { NoArrowDirective } from './micellaneals/no-arrow.directive';
 
 import { VinDataService } from "./micellaneals/services/vin-data.service";
 import { ListComponentsConfigService } from './micellaneals/services/configService/list-components-config.service'
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx'
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ListComponentsConfigService } from './micellaneals/services/configServi
     VinDataService,
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    BarcodeScanner
   ],
   bootstrap: [AppComponent]
 })

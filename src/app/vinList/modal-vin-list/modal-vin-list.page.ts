@@ -1,5 +1,6 @@
 import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx'
 
 @Component({
   selector: 'app-modal-vin-list',
@@ -8,22 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalVinListPage implements OnInit {
 
-  constructor(private ModalCrtl:ModalController) { }
+  code : {}
+
+  constructor(private ModalCrtl: ModalController, private barcode: BarcodeScanner) {
+  }
+
 
   ngOnInit() {
   }
-  
-  getTask(event: Event){
+
+  getTask(event: Event) {
     //this.VinTaskService.getTask(this.vinCode)
     //   .subscribe(all => {
     //  alert(JSON.stringify(all))
     //});
     //event.preventDefault
     //alert(this.vinCtrl.value)
- }
+  }
 
-  exitOnData(){
+  exitOnData() {
     this.ModalCrtl.dismiss()
+  }
+  Scanner() {
+    this.barcode.scan().then(datos =>{
+      this.code = datos;
+      console.log(datos);
+    }).catch(err =>{
+      console.log(err);
+    });
   }
 
 }
