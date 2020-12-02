@@ -18,8 +18,7 @@
       <ion-item mode="md">
         <ion-label position="floating">Model</ion-label>
         <ion-icon slot="start" name="albums"></ion-icon>
-        <ion-select formControlName="model" [(ngModel)]="selectMarcVal" autocapitalize (ion-change)="$event"
-          interface="action-sheet">
+        <ion-select formControlName="model" [(ngModel)]="selectMarcVal" autocapitalize (ion-change)="$event" interface="action-sheet">
           <ion-select-option *ngFor="let item of listModels" [value]="item">{{item}}</ion-select-option>
         </ion-select>
       </ion-item>

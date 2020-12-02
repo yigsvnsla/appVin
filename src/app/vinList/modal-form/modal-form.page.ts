@@ -107,7 +107,7 @@ export class ModalFormPage implements OnInit {
     camShot(){
       alert(this.valueSelectAutoParts)
     }
-    
+    valueSelectAutoParts: String;
       valueSelectArea: String;
     onChangeSelectArea(event){
       this.valueSelectArea = event.target.value;
@@ -115,7 +115,7 @@ export class ModalFormPage implements OnInit {
       
     }
 
-      valueSelectAutoParts: String; 
+      
     onChangeSelectAutoParts(event){
       this.valueSelectAutoParts = event.target.value;
       console.log(this.valueSelectAutoParts)
